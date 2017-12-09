@@ -8,5 +8,9 @@ namespace ImageFilterProject
 {
     interface IInputOutput
     {
+        void btnOpenOriginalImage(object sender, EventArgs e);
+        void btnSaveNewImage(object sender, EventArgs e);
+        void applyFilter(bool preview);
+        void NeighbourCountValueChangedEventHandler(object sender, EventArgs e);
     }
 }
