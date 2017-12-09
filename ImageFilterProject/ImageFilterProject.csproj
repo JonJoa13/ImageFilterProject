@@ -52,8 +52,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceGUI.cs" />
-    <Compile Include="InterfaceInputOutput.cs" />
+    <Compile Include="IGUI.cs" />
+    <Compile Include="IInputOutput.cs" />
+    <Compile Include="Matrix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ImageFilterProject
 {
-    interface InterfaceInputOutput
+    interface IInputOutput
     {
     }
 }
