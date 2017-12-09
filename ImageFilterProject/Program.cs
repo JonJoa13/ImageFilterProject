@@ -13,6 +13,7 @@ namespace ImageFilterProject
         /// </summary>
         [STAThread]
         static void Main()
+            //test
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
