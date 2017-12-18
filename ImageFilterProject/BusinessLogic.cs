@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ImageFilterProject
 {
-    class BusinessLogic
+    public class BusinessLogic
     {
         private readonly IInputOutput inputOutput;
         private readonly IGUI GUI;

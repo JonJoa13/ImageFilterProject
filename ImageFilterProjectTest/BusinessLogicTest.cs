@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NSubstitute;
+using ImageFilterProject;
 
 namespace ImageFilterProjectTest
 {
@@ -25,8 +27,28 @@ namespace ImageFilterProjectTest
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void LoadImageTest()
         {
+            var InputOutput = Substitute.For<IInputOutput>();
+            var GUI = Substitute.For<IGUI>();
+        }
+
+        public void SaveImageTest()
+        {
+            var InputOutput = Substitute.For<IInputOutput>();
+            var GUI = Substitute.For<IGUI>();
+        }
+
+        public void ApplyBlackAndWhiteFilterTest()
+        {
+            var InputOutput = Substitute.For<IInputOutput>();
+            var GUI = Substitute.For<IGUI>();
+        }
+
+        public void ApplyLaplacian3x3FilterTest()
+        {
+            var InputOutput = Substitute.For<IInputOutput>();
+            var GUI = Substitute.For<IGUI>();
         }
     }
 }

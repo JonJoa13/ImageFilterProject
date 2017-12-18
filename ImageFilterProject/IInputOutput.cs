@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ImageFilterProject
 {
-    interface IInputOutput
+    public interface IInputOutput
     {
         void LoadImage(object sender, EventArgs e);
         void SaveNewImage(object sender, EventArgs e);
