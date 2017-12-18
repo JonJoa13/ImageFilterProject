@@ -31,24 +31,28 @@ namespace ImageFilterProjectTest
         {
             var InputOutput = Substitute.For<IInputOutput>();
             var GUI = Substitute.For<IGUI>();
+            BusinessLogic testBusinessLogic = new BusinessLogic(InputOutput, GUI);
         }
 
         public void SaveImageTest()
         {
             var InputOutput = Substitute.For<IInputOutput>();
             var GUI = Substitute.For<IGUI>();
+            BusinessLogic testBusinessLogic = new BusinessLogic(InputOutput, GUI);
         }
 
         public void ApplyBlackAndWhiteFilterTest()
         {
             var InputOutput = Substitute.For<IInputOutput>();
             var GUI = Substitute.For<IGUI>();
+            BusinessLogic testBusinessLogic = new BusinessLogic(InputOutput, GUI);
         }
 
         public void ApplyLaplacian3x3FilterTest()
         {
             var InputOutput = Substitute.For<IInputOutput>();
             var GUI = Substitute.For<IGUI>();
+            BusinessLogic testBusinessLogic = new BusinessLogic(InputOutput, GUI);
         }
     }
 }
