@@ -19,5 +19,7 @@ namespace ImageFilterProject
         Bitmap Laplacian3x3Filter(Bitmap sourceBitmap, bool grayscale = true);
         Bitmap BlackWhiteFilter(Bitmap initialBmp);
         bool CompareTwoImages(Bitmap img1, Bitmap img2);
+        void applyFilter(bool preview);
+        void NeighbourCountValueChangedEventHandler(object sender, EventArgs e);
     }
 }
