@@ -1,6 +1,6 @@
 ﻿namespace ImageFilterProject
 {
-    partial class MainForm
+    partial class GUI
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
