@@ -9,33 +9,39 @@ namespace ImageFilterProject
 {
     public class BusinessLogic
     {
-        Bitmap image = null;
-        private readonly IInputOutput inputOutput;
-        private readonly IGUI GUI;
+        public const int No_Filter = 0;
+        public const int Laplacian3x3_Filter = 1;
+        public const int BlackAndWhite_Filter = 2;
 
-        public BusinessLogic (IInputOutput inputOutput, IGUI GUI)
+        private IInputOutput inputOutput = new InputOutput();
+        
+        public Image applyFilter(Image image, int name)
         {
-            this.inputOutput = inputOutput;
-            this.GUI = GUI;
+            Image image2 = new Image(image.bitmap, image.name);
+            switch (name)
+            {
+                case Laplacian3x3_Filter:
+                    image2.bitmap = ExtBitmap.Laplacian3x3Filter(image2.bitmap, false);
+                    break;
+                case BlackAndWhite_Filter:
+                    image2.bitmap = ExtBitmap.BlackWhiteFilter(image2.bitmap);
+                    break;
+            }
+            return image2;
         }
 
-        public BusinessLogic()
-        {
-
-        }
-
-        public void LoadImage()
+        public Image LoadImage()
         {
             try
             {
-                inputOutput.LoadImage();
+               return inputOutput.LoadImage();
             }catch(Exception e)
             {
                 throw e;
             }
         }
 
-        public void SaveNewImage()
+        public void SaveNewImage(Image image)
         {
             try
             {
@@ -47,19 +53,6 @@ namespace ImageFilterProject
             }
         }
 
-        /* Methodes de la business logic à implémenter
-         * 
-        Bitmap CopyToSquareCanvas(Bitmap sourceBitmap, int canvasWidthLenght);
-        Bitmap ConvolutionFilter(Bitmap sourceBitmap, double[,] filterMatrix, double factor = 1, int bias = 0, bool grayscale = false);
-        Bitmap ConvolutionFilter(Bitmap sourceBitmap, double[,] xFilterMatrix, double[,] yFilterMatrix, double factor = 1, int bias = 0, bool grayscale = false);
-        void RgbMethod(byte[] pixelBuffer);
-        void OffsetsWithFilterBGR_X(Bitmap sourceBitmap, double[,] filterMatrix, BitmapData sourceData, byte[] pixelBuffer, byte[] resultBuffer, double factor = 1, int bias = 0);
-        void OffsetsWithFilterBGR_XY(Bitmap sourceBitmap, double[,] xFilterMatrix, double[,] yFilterMatrix, BitmapData sourceData, byte[] pixelBuffer, byte[] resultBuffer, double factor = 1, int bias = 0);
-        Bitmap Laplacian3x3Filter(Bitmap sourceBitmap, bool grayscale = true);
-        Bitmap BlackWhiteFilter(Bitmap initialBmp);
-        bool CompareTwoImages(Bitmap img1, Bitmap img2);
-        void applyFilter(bool preview);
-        void NeighbourCountValueChangedEventHandler(object sender, EventArgs e);
-        */
+        
     }
 }
