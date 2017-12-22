@@ -12,12 +12,16 @@ namespace ImageFilterProject
 {
     class InputOutput : IInputOutput
     {
-        private Bitmap image;
+        Bitmap image;
+
         public Bitmap LoadImage()
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Select an image file.";
-            ofd.Filter = "Png Images(*.png)|*.png|Jpeg Images(*.jpg)|*.jpg";
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                Title = "Select an image file.",
+                Filter = "Png Images(*.png)|*.png|Jpeg Images(*.jpg)|*.jpg"
+            };
+
             ofd.Filter += "|Bitmap Images(*.bmp)|*.bmp";
 
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -33,9 +37,12 @@ namespace ImageFilterProject
         {
             if (image != null)
             {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Title = "Specify a file name and file path";
-                sfd.Filter = "Png Images(*.png)|*.png|Jpeg Images(*.jpg)|*.jpg";
+                SaveFileDialog sfd = new SaveFileDialog
+                {
+                    Title = "Specify a file name and file path",
+                    Filter = "Png Images(*.png)|*.png|Jpeg Images(*.jpg)|*.jpg"
+                };
+
                 sfd.Filter += "|Bitmap Images(*.bmp)|*.bmp";
 
                 if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)

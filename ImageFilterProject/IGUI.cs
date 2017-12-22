@@ -10,8 +10,9 @@ namespace ImageFilterProject
 {
     public interface IGUI
     {
-        Bitmap LoadImage();
-        void SaveNewImage(Bitmap image);
+        void LoadImage(object sender, EventArgs e);
+        void SaveNewImage(object sender, EventArgs e);
         void ApplyFilter(bool preview);
+        void NeighbourCountValueChangedEventHandler(object sender, EventArgs e);
     }
 }

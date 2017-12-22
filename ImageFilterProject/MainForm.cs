@@ -22,12 +22,18 @@ namespace ImageFilterProject
             throw new NotImplementedException();
         }
 
-        public Bitmap LoadImage()
+        public void LoadImage(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            BusinessLogic BLL = new BusinessLogic();
+            BLL.LoadImage();
         }
 
-        public void SaveNewImage(Bitmap image)
+        public void NeighbourCountValueChangedEventHandler(object sender, EventArgs e)
+        {
+            ApplyFilter(true);
+        }
+
+        public void SaveNewImage(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }

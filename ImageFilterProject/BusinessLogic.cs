@@ -19,20 +19,32 @@ namespace ImageFilterProject
             this.GUI = GUI;
         }
 
+        public BusinessLogic()
+        {
+
+        }
+
         public void LoadImage()
         {
             try
             {
-                image = inputOutput.LoadImage();
+                inputOutput.LoadImage();
             }catch(Exception e)
             {
-
+                throw e;
             }
         }
 
         public void SaveNewImage()
         {
-
+            try
+            {
+                inputOutput.SaveNewImage(image);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         /* Methodes de la business logic à implémenter
