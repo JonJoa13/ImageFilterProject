@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace ImageFilterProject
 {
-    class Matrix
+    public class Matrix
     {
+        public static double[,] Laplacian3x3
+        {
+            get
+            {
+                return new double[,]
+                { { -1, -1, -1,  },
+                  { -1,  8, -1,  },
+                  { -1, -1, -1,  }, };
+            }
+        }
     }
 }
