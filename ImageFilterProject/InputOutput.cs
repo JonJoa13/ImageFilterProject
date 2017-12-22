@@ -12,9 +12,9 @@ namespace ImageFilterProject
 {
     class InputOutput : IInputOutput
     {
-        private Image image;
+        private Bitmap originalBitmap;
 
-        public Image LoadImage()
+        public Bitmap LoadImage()
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Select an image file.";
@@ -24,15 +24,15 @@ namespace ImageFilterProject
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 StreamReader streamReader = new StreamReader(ofd.FileName);
-                image = new Image((Bitmap)Bitmap.FromStream(streamReader.BaseStream),ofd.FileName);
+                originalBitmap = (Bitmap)Bitmap.FromStream(streamReader.BaseStream);
                 streamReader.Close();
             }
-            return image;
+            return originalBitmap;
         }
 
-        public void SaveNewImage(Image FinalImage)
+        public void SaveNewImage(Bitmap resultBitmap)
         {
-            if (FinalImage != null)
+            if (resultBitmap != null)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Title = "Specify a file name and file path";
@@ -54,12 +54,11 @@ namespace ImageFilterProject
                     }
 
                     StreamWriter streamWriter = new StreamWriter(sfd.FileName, false);
-                    Bitmap image = FinalImage.bitmap;
-                    image.Save(streamWriter.BaseStream, imgFormat);
+                    resultBitmap.Save(streamWriter.BaseStream, imgFormat);
                     streamWriter.Flush();
                     streamWriter.Close();
 
-                    FinalImage = null;
+                    resultBitmap = null;
                 }
             }
         }

@@ -10,9 +10,9 @@ namespace ImageFilterProject
 {
     public interface IGUI
     {
-        Image LoadImage();
+        Bitmap LoadImage();
         void SaveNewImage();
-        Image ApplyFilter(int SelectedFilter, Image image);
+        Bitmap ApplyFilter(int SelectedFilter, Bitmap image);
         List<string> getAllFilters();
     }
 }

@@ -9,7 +9,7 @@ namespace ImageFilterProject
 {
     public interface IInputOutput
     {
-        Image LoadImage();
-        void SaveNewImage(Image resultBitmap);
+        Bitmap LoadImage();
+        void SaveNewImage(Bitmap resultBitmap);
     }
 }
