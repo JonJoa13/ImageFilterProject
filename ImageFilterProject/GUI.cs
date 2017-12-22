@@ -9,11 +9,10 @@ namespace ImageFilterProject
 {
     class GUI : IGUI
     {
-        private static Image originalBitmap = null;
-        private Image previewBitmap = null;
-        private Image currentBitmap = null;
+        private static Bitmap originalBitmap = null;
+        private Bitmap currentBitmap = null;
 
-        public Image ApplyFilter(int SelectedFilter, Image image)
+        public Bitmap ApplyFilter(int SelectedFilter, Bitmap image)
         {
             if(SelectedFilter == 0)
             {
@@ -21,7 +20,7 @@ namespace ImageFilterProject
             }
 
             BusinessLogic bl = new BusinessLogic();
-            currentBitmap = bl.applyFilter(image, SelectedFilter);
+            currentBitmap = bl.applyFilter(image,SelectedFilter);
             return currentBitmap;
         }
 
@@ -34,23 +33,20 @@ namespace ImageFilterProject
             return listFilters;
         }
 
-        public Image LoadImage()
+        public Bitmap LoadImage()
         {
-            BusinessLogic bl = new BusinessLogic();
-            originalBitmap = bl.LoadImage();
-            Bitmap previewImage = originalBitmap.bitmap;
-            Bitmap currentImage = originalBitmap.bitmap;
-            currentBitmap = new Image(currentImage, "test");
+            BusinessLogic businessLogic = new BusinessLogic();
+            originalBitmap = businessLogic.LoadImage();
 
-            return currentBitmap;
+            return originalBitmap;
         }
 
         public void SaveNewImage()
         {
             if (currentBitmap == null) return;
 
-            BusinessLogic bl = new BusinessLogic();
-            bl.SaveNewImage(currentBitmap);
+            BusinessLogic businessLogic = new BusinessLogic();
+            businessLogic.SaveNewImage(currentBitmap);
         }
     }
 }

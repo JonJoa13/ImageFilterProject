@@ -14,23 +14,45 @@ namespace ImageFilterProject
         public const int BlackAndWhite_Filter = 2;
 
         private IInputOutput inputOutput = new InputOutput();
-        
-        public Image applyFilter(Image image, int name)
+        private IGUI gui = new GUI();
+
+        public BusinessLogic()
         {
-            Image image2 = new Image(image.bitmap, image.name);
-            switch (name)
-            {
-                case Laplacian3x3_Filter:
-                    image2.bitmap = ExtBitmap.Laplacian3x3Filter(image2.bitmap, false);
-                    break;
-                case BlackAndWhite_Filter:
-                    image2.bitmap = ExtBitmap.BlackWhiteFilter(image2.bitmap);
-                    break;
-            }
-            return image2;
+
         }
 
-        public Image LoadImage()
+        public BusinessLogic(IInputOutput inputOutput)
+        {
+            this.inputOutput = inputOutput;
+        }
+
+        public BusinessLogic(IGUI GUI)
+        {
+            this.gui = GUI;
+        }
+
+        public Bitmap applyFilter(Bitmap image, int filterName)
+        {
+            try
+            {
+                switch (filterName)
+                {
+                    case Laplacian3x3_Filter:
+                        image = ExtBitmap.Laplacian3x3Filter(image, false);
+                        break;
+                    case BlackAndWhite_Filter:
+                        image = ExtBitmap.BlackWhiteFilter(image);
+                        break;
+                }
+                return image;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public Bitmap LoadImage()
         {
             try
             {
@@ -41,7 +63,7 @@ namespace ImageFilterProject
             }
         }
 
-        public void SaveNewImage(Image image)
+        public void SaveNewImage(Bitmap image)
         {
             try
             {

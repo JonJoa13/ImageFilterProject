@@ -18,8 +18,8 @@ namespace ImageFilterProject
         
         private IGUI gui = new GUI();
         private BusinessLogic bl = new BusinessLogic();
-        private Image image;
-        private Image originalImage;
+        private Bitmap originalBitmap;
+        private Bitmap resultBitmap;
 
 
         public FilterScreen()
@@ -43,14 +43,14 @@ namespace ImageFilterProject
 
         private void buttonOpenOriginal_Click(object sender, EventArgs e)
         {
-            image = gui.LoadImage();
+            originalBitmap = gui.LoadImage();
 
-            if (image != null)
+            if (originalBitmap != null)
             {
-                pictureOriginal.Image = image.bitmap;
-                picturePreview.Image = image.bitmap;
+                pictureOriginal.Image = originalBitmap;
                 comboBoxFilter.Enabled = true;
-                originalImage = new Image(image.bitmap, image.name);
+                picturePreview.Image = originalBitmap;
+                comboBoxFilter.SelectedIndex = 0;
             }
         }
 
@@ -65,8 +65,8 @@ namespace ImageFilterProject
         {
             if (picturePreview.Image == null) return;
             ComboBox comboBox = (ComboBox)sender;
-            image = gui.ApplyFilter(comboBox.SelectedIndex, originalImage);
-            picturePreview.Image = image.bitmap;
+            resultBitmap = gui.ApplyFilter(comboBox.SelectedIndex, originalBitmap);
+            picturePreview.Image = resultBitmap;
         }
     }
 }
