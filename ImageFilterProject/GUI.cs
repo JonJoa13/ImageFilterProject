@@ -10,7 +10,6 @@ namespace ImageFilterProject
     class GUI : IGUI
     {
         private static Bitmap originalBitmap = null;
-        private Bitmap previewBitmap = null;
         private Bitmap currentBitmap = null;
 
         public Bitmap ApplyFilter(int SelectedFilter, Bitmap image)
