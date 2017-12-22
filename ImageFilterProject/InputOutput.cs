@@ -12,37 +12,31 @@ namespace ImageFilterProject
 {
     class InputOutput : IInputOutput
     {
-        Bitmap image;
+        private Image image;
 
-        public Bitmap LoadImage()
+        public Image LoadImage()
         {
-            OpenFileDialog ofd = new OpenFileDialog
-            {
-                Title = "Select an image file.",
-                Filter = "Png Images(*.png)|*.png|Jpeg Images(*.jpg)|*.jpg"
-            };
-
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select an image file.";
+            ofd.Filter = "Png Images(*.png)|*.png|Jpeg Images(*.jpg)|*.jpg";
             ofd.Filter += "|Bitmap Images(*.bmp)|*.bmp";
 
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 StreamReader streamReader = new StreamReader(ofd.FileName);
-                image = (Bitmap)Bitmap.FromStream(streamReader.BaseStream);
+                image = new Image((Bitmap)Bitmap.FromStream(streamReader.BaseStream),ofd.FileName);
                 streamReader.Close();
             }
             return image;
         }
 
-        public void SaveNewImage(Bitmap image)
+        public void SaveNewImage(Image FinalImage)
         {
-            if (image != null)
+            if (FinalImage != null)
             {
-                SaveFileDialog sfd = new SaveFileDialog
-                {
-                    Title = "Specify a file name and file path",
-                    Filter = "Png Images(*.png)|*.png|Jpeg Images(*.jpg)|*.jpg"
-                };
-
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Title = "Specify a file name and file path";
+                sfd.Filter = "Png Images(*.png)|*.png|Jpeg Images(*.jpg)|*.jpg";
                 sfd.Filter += "|Bitmap Images(*.bmp)|*.bmp";
 
                 if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -60,11 +54,12 @@ namespace ImageFilterProject
                     }
 
                     StreamWriter streamWriter = new StreamWriter(sfd.FileName, false);
+                    Bitmap image = FinalImage.bitmap;
                     image.Save(streamWriter.BaseStream, imgFormat);
                     streamWriter.Flush();
                     streamWriter.Close();
 
-                    image = null;
+                    FinalImage = null;
                 }
             }
         }

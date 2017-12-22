@@ -8,7 +8,7 @@ namespace ImageFilterProject
 {
     public class Matrix
     {
-        public double[,] Laplacian3x3
+        public static double[,] Laplacian3x3
         {
             get
             {
