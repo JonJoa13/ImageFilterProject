@@ -10,11 +10,32 @@ using System.Windows.Forms;
 
 namespace ImageFilterProject
 {
-    public partial class MainForm : Form
+    public partial class GUI : Form , IGUI
     {
-        public MainForm()
+        public GUI()
         {
             InitializeComponent();
+        }
+
+        public void ApplyFilter(bool preview)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LoadImage(object sender, EventArgs e)
+        {
+            BusinessLogic BLL = new BusinessLogic();
+            BLL.LoadImage();
+        }
+
+        public void NeighbourCountValueChangedEventHandler(object sender, EventArgs e)
+        {
+            ApplyFilter(true);
+        }
+
+        public void SaveNewImage(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

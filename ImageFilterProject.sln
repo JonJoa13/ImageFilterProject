@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageFilterProject", "ImageFilterProject\ImageFilterProject.csproj", "{614F0DDD-78C8-4D3B-BA6F-E4C92441ED28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageFilterProjectTest", "ImageFilterProjectTest\ImageFilterProjectTest.csproj", "{6F1CA4D7-97DF-437F-B300-BFA9AB336971}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{614F0DDD-78C8-4D3B-BA6F-E4C92441ED28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{614F0DDD-78C8-4D3B-BA6F-E4C92441ED28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{614F0DDD-78C8-4D3B-BA6F-E4C92441ED28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1CA4D7-97DF-437F-B300-BFA9AB336971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1CA4D7-97DF-437F-B300-BFA9AB336971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1CA4D7-97DF-437F-B300-BFA9AB336971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1CA4D7-97DF-437F-B300-BFA9AB336971}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
